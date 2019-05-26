@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Propeller Admin Dashboard">
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+
+<title>Synergy</title>
+<meta name="description" content="Admin is a material design and bootstrap based responsive dashboard template created mainly for admin and backend applications."/>
+
+<link rel="shortcut icon" type="image/x-icon" href="../../themes/images/favicon.ico">
+
+<!-- Google icon -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Bootstrap css -->
+<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.min.css">
+<script type="text/javascript" language="javascript" src="../../components/datetimepicker/js/moment-with-locales.js"></script>
+
+<!-- DataTables css-->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css">
+<!-- Propeller dataTables css-->
+
+<link rel="stylesheet" type="text/css" href="../../components/data-table/css/pmd-datatable.css">
+<!-- Propeller css -->
+<!-- build:[href] assets/css/ -->
+<link rel="stylesheet" type="text/css" href="../../assets/css/propeller.min.css">
+<!-- /build -->
+
+<!-- Propeller date time picker css-->
+<link rel="stylesheet" type="text/css" href="../../components/datetimepicker/css/bootstrap-datetimepicker.css" />
+<link rel="stylesheet" type="text/css" href="../../components/datetimepicker/css/pmd-datetimepicker.css" />
+
+<!-- Propeller theme css-->
+<link rel="stylesheet" type="text/css" href="../../themes/css/propeller-theme.css" />
+
+<!-- Propeller admin theme css-->
+<link rel="stylesheet" type="text/css" href="../../themes/css/propeller-admin.css">
+
+</head>
+
+<body onload="plot()">
+<!-- Header Starts -->
+<!--Start Nav bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top pmd-navbar pmd-z-depth">
+
+	<div class="container-fluid">
+		<div class="pmd-navbar-right-icon pull-right navigation">
+			
+            
+		</div>
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+
+			<a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1200" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pull-left margin-r8 pmd-sidebar-toggle"><i class="material-icons md-light">menu</i></a>	
+		  <a href="../../index.html" class="navbar-brand">
+		  			  	
+		  </a>
+		</div>
+	</div>
+
+</nav><!--End Nav bar -->
+<!-- Header Ends -->
+
+<!-- Sidebar Starts -->
+<div class="pmd-sidebar-overlay"></div>
+
+<!-- Left sidebar -->
+<aside id="basicSidebar" class="pmd-sidebar  sidebar-default pmd-sidebar-slide-push pmd-sidebar-left pmd-sidebar-close bg-fill-darkblue sidebar-with-icons" role="navigation">
+	<ul class="nav pmd-sidebar-nav">
+		
+		<!-- User info -->
+		<li class="dropdown pmd-dropdown pmd-user-info visible-xs visible-md visible-sm visible-lg">
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" aria-expandedhref="javascript:void(0);">
+				<div class="media-left">
+					<img src="../../themes/images/synergy-logo.png" alt="New User">
+				</div>
+				<div class="media-body media-middle"></div>
+				<div class="media-right media-middle"><i class="dic-more-vert dic"></i></div>
+			</a>
+			</li><!-- End user info -->
+		
+		<li> 
+			<a class="pmd-ripple-effect" href="../../index.html">	
+				<i class="media-left media-middle"><svg version="1.1" x="0px" y="0px" width="19.83px" height="18px" viewBox="287.725 407.535 19.83 18" enable-background="new 287.725 407.535 19.83 18"
+	 xml:space="preserve">
+<g>
+	<path fill="#C9C8C8" d="M307.555,407.535h-9.108v10.264h9.108V407.535z M287.725,407.535v6.232h9.109v-6.232H287.725z
+		 M296.834,415.271h-9.109v10.264h9.109V415.271z M307.555,419.303h-9.108v6.232h9.108V419.303z"/>
+</g>
+</svg></i>
+				<span class="media-body">Dashboard</span>
+			</a> 
+		</li>
+		
+		
+		<li id = "invoice_menu_id" class="dropdown pmd-dropdown"> 
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
+				<i class="material-icons media-left pmd-sm">receipt</i> 
+				<span class="media-body">Invoice</span>
+				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+			</a> 
+			<ul class="dropdown-menu">
+				<li id = "add_invoice_menu_id"><a href="add_invoice.html">Add Invoice</a></li>
+				<li><a href="list_invoice.html">List Invoices</a></li>
+				<li><a href="payment_history.html">Payment History</a></li>				
+			</ul>
+		</li>
+		
+		
+		<li id="project_menu_id" class="dropdown pmd-dropdown"> 
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
+				<i class="media-left media-middle"><svg version="1.1" x="0px" y="0px" width="18px" height="12.706px" viewBox="0 0 18 12.706" enable-background="new 0 0 18 12.706" xml:space="preserve">
+<path fill="#C9C8C8" d="M0,0v12.706h18V0H0z M12.706,4.235v3.176H9.108V4.235H12.706z M8.049,4.235v3.176h-6.99V4.235H8.049z
+	 M1.059,8.47h6.99v3.177h-6.99V8.47z M9.108,11.647V8.47h3.599v3.177H9.108z M13.766,11.647V8.47h3.176v3.177H13.766z M16.942,7.412
+	h-3.176V4.235h3.176V7.412L16.942,7.412z"/>
+</svg></i> 
+				<span class="media-body">Projects</span>
+				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+			</a> 
+			<ul class="dropdown-menu">
+				<li id = "add_project_menu_id"><a href="../projects/add_project.html">Add Project</a></li>
+				<li><a href="../projects/list_project.html">List Projects</a></li>
+				
+			</ul>
+		</li>
+		<li id = "profiles_menu_id" class="dropdown pmd-dropdown"> 
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
+				<i class="material-icons media-left pmd-sm">account_circle</i> 
+				<span class="media-body">Profiles</span>
+				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+			</a> 
+			<ul class="dropdown-menu">
+				<li><a href="../profiles/Employee_Profiles.html">Employee Profiles</a></li>
+				<li><a href="../profiles/Tech_Profiles.html">Tech Profiles</a></li>
+				<li><a href="../profiles/Customer_Profiles.html">Customer Profiles</a></li>
+			</ul>
+		</li>
+
+		<li id = "report_menu_id" class="dropdown pmd-dropdown"> 
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
+				<i class="material-icons media-left pmd-sm">library_books</i> 
+				<span class="media-body">Reports</span>
+				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+			</a> 
+			<ul class="dropdown-menu">
+				<li><a href="profile_report.html">Profile Report</a></li>
+				<li><a href="project_report.html">Project Report</a></li>
+				<li><a href="ticket_report.html">Ticket Report</a></li>
+			</ul>
+		</li>
+
+		
+		<li> 
+			<a class="pmd-ripple-effect" href="../../login.html">	
+				<i class="media-left media-middle">
+				<svg version="1.1" id="Layer_1" x="0px" y="0px" width="18px" height="18px" viewBox="288.64 337.535 18 18" enable-background="new 288.64 337.535 18 18" xml:space="preserve">
+				<path fill="#C9C8C8" d="M295.39,337.535v2.25h9v13.5h-9v2.25h11.25v-18H295.39z M297.64,342.035v3.375h-9v2.25h9v3.375l3.375-3.375
+					l1.125-1.125l-1.125-1.125L297.64,342.035z"/>
+				</svg></i> 
+				<span class="media-body">Log Out</span>
+			</a> 
+		</li>
+		
+		
+	</ul>
+</aside><!-- End Left sidebar -->
+<!-- Sidebar Ends -->  
+	
+<!--content area start-->
+
+		<!-- Title -->
+		
+		
+			<Script>
+				plot = function(){
+					if(localStorage.myemail === undefined) {
+					    		window.location.href = "../../login.html";
+											        }
+								var today = new Date();
+								today.setDate(today.getDate());								
+								var future = new Date();
+								future.setDate(future.getDate() - 30);
+								var start_month = moment(future).format('YYYY-MM-DD');
+								var start_month_name = moment(future).format('MMMM');
+								
+								var end_month = moment(today).format('YYYY-MM-DD');
+								var end_month_name = moment(today).format('MMMM');
+								
+								if(sessionStorage.first_time === undefined || sessionStorage.first_time == 0) {
+									sessionStorage.setItem("first_time", 0);
+									sessionStorage.setItem("first_time_start_date", start_month);
+									sessionStorage.setItem("first_time_end_date", end_month);
+									sessionStorage.setItem("first_time_status", 1);								
+							}
+							profile_report();
+
+				}
+				pre_profile_report = function(){
+					sessionStorage.setItem("first_time", 1);
+					profile_report();
+				}
+					    profile_report = function() { 
+					    	if (sessionStorage.first_time == 0) {
+					    		var start_date = sessionStorage.first_time_start_date;
+					    		var end_date = sessionStorage.first_time_end_date;
+					    		var status = sessionStorage.first_time_status;
+					    		document.getElementById("start_month_name").innerHTML = sessionStorage.first_time_start_date;
+								document.getElementById("end_month_name").innerHTML = sessionStorage.first_time_end_date;
+
+					    	}
+					    	else{
+					    		
+					    		var start_date = document.getElementById('start_date').value;
+					    		var end_date = document.getElementById('end_date').value;
+					    		var status = document.getElementById('status').value;
+					    		document.getElementById("start_month_name").innerHTML = start_date;
+								document.getElementById("end_month_name").innerHTML = end_date;
+					    		sessionStorage.setItem("first_time", 0);
+					    		console.log("else");
+
+					    	}
+					    	
+					    	
+
+
+					        $.ajax({
+					            url : "http://supervisabrampton.com/index.php/api/request/",
+					            type : 'POST',
+					            data : JSON.stringify({
+					                "jsonrpc" : "2.0",
+					                "method" : "getProfileReports",
+					                "id" : "1",
+					                   "params": {
+					                   				 "id": localStorage.myid,
+								                     "is_customer": localStorage.data3,
+								                     "internal_user_external_user": localStorage.data2,
+												     // "id": "1022",
+								         //             "is_customer": "0",
+								         //             "internal_user_external_user": "1",
+								                     "filter": {
+														"active_inactive_users": status,
+														"start_date": start_date,
+														"end_date": end_date
+													}
+
+
+
+					            				},
+					            dataType : "json",
+					            contentType: "application/json"
+					            
+					                }),
+					                success: function (result) {
+					                	console.log(localStorage.myid);
+								        console.log(result);
+
+								        var have_active = 0;
+								        var have_inactive = 0;
+								        var have_closed = 0;
+								        if(result.result.list.arrProfiles === undefined || result.result.list.arrProfiles.length == 0) {
+								        var active =  0;
+								        var inactive = 0;
+								        var closed = 0;	
+								        var data = [];
+								        data = [active, inactive, closed];													   
+														} else {
+															if(typeof result.result.list.arrY.Active === 'undefined' || result.result.list.arrY.Active === null) {
+													  }
+													  else{
+													  	have_active = 1;
+													  	console.log(have_active);
+								        var keysz = Object.keys(result.result.list.arrProfiles);
+										var listz = result.result.list.arrProfiles;
+										var lenz = keysz.length;
+										var markz = [];
+										var datasetz = [];
+										for (var i = 0; i < lenz; ++i) {										
+													     markz[i] = (listz[keysz[i]]);
+													     // console.log(markz[i]);
+											        
+															datasetz.push(markz[i]['Active']);
+														    
+														
+													  }
+													  var sum = 0;
+													  for (var j = 0; j < datasetz.length; j++) {
+														  sum += datasetz[j]
+														}
+													  console.log(datasetz);
+													  console.log(sum);
+													}
+
+
+													  if(typeof result.result.list.arrY.InActive === 'undefined' || result.result.list.arrY.InActive === null) {
+													  }
+													  else{														   
+														
+															have_inactive = 1;
+															var checkclosed = Object.keys(result.result.list.arrY.InActive);
+															 if(typeof checkclosed.details === 'undefined' || checkclosed.details === null) {
+														}
+														else{
+															var keysz2 = Object.keys(result.result.list.arrY.InActive.details);
+										var listz2 = result.result.list.arrY.InActive.details;
+										var lenz2 = keysz2.length;
+										var markz2 = [];
+										var datasetz2 = [];
+										for (var i2 = 0; i2 < lenz2; ++i2) {										
+													     markz2[i2] = (listz2[keysz2[i2]]);
+													   
+											        
+															datasetz2.push(markz2[i2]);
+														    
+														
+													  }
+													  var sum2 = 0;
+													  for (var j2 = 0; j2 < datasetz2.length; j2++) {
+														  sum2 += datasetz2[j2]
+														}
+														console.log(datasetz3);
+													  	console.log(sum3);
+														}
+													}
+
+														if(typeof result.result.list.arrY.Closed === 'undefined' || result.result.list.arrY.Closed === null) {
+														}
+														else{
+															have_closed = 1;
+															var checkclosed2 = Object.keys(result.result.list.arrY.Closed);
+															 if(typeof checkclosed.details === 'undefined' || checkclosed.details === null) {
+														}
+														else{
+
+															var keysz3 = Object.keys(result.result.list.arrY.Closed.details);
+														
+										var listz3 = result.result.list.arrY.Closed.details;
+										var lenz3 = keysz3.length;
+										var markz3 = [];
+										var datasetz3 = [];
+										for (var i3 = 0; i3 < lenz3; ++i3) {										
+													     markz3[i3] = (listz3[keysz3[i3]]);
+													    
+											        
+															datasetz3.push(markz3[i3]);
+														    
+														
+													  }
+													  var sum3 = 0;
+													  for (var j3 = 0; j3 < datasetz3.length; j3++) {
+														  sum3 += datasetz3[j3]
+														}
+														console.log(datasetz3);
+													  	console.log(sum3);
+														}
+													}
+														if(have_active == 1 && have_inactive == 1 && have_closed == 1){
+														var active =  sum;
+												        var inactive = sum2;
+												        var closed = sum3;	
+												        var data = [];
+												        data = [active, inactive, closed];
+												        document.getElementById("active").innerHTML = active;
+												        document.getElementById("inactive").innerHTML = inactive;
+								        				document.getElementById("closed").innerHTML = closed;
+												    	}
+												    	else if(have_active == 1 && have_inactive == 0 && have_closed == 0){
+												    		var active =  sum;
+													        var inactive = 0;
+													        var closed = 0;	
+													        var data = [];
+													        data = [active, inactive, closed];
+													        document.getElementById("active").innerHTML = active;
+												        document.getElementById("inactive").innerHTML = inactive;
+								        				document.getElementById("closed").innerHTML = closed;
+
+												    	}
+												    	else if(have_active == 1 && have_inactive == 1 && have_closed == 0){
+												    		var active =  sum;
+													        var inactive = sum2;
+													        var closed = 0;	
+													        var data = [];
+													        data = [active, inactive, closed];
+													        document.getElementById("active").innerHTML = active;
+												        document.getElementById("inactive").innerHTML = inactive;
+								        				document.getElementById("closed").innerHTML = closed;
+
+												    	}
+												    	else if(have_active == 1 && have_inactive == 0 && have_closed == 1){
+												    		var active =  sum;
+													        var inactive = 0;
+													        var closed = sum3;	
+													        var data = [];
+													        data = [active, inactive, closed];
+													        document.getElementById("active").innerHTML = active;
+												        document.getElementById("inactive").innerHTML = inactive;
+								        				document.getElementById("closed").innerHTML = closed;
+
+												    	}
+												    	else if(have_active == 0 && have_inactive == 1 && have_closed == 1){
+												    		var active =  0;
+													        var inactive = sum2;
+													        var closed = sum3;	
+													        var data = [];
+													        data = [active, inactive, closed];
+													        document.getElementById("active").innerHTML = active;
+												        document.getElementById("inactive").innerHTML = inactive;
+								        				document.getElementById("closed").innerHTML = closed;
+
+												    	}
+												    	else if(have_active == 0 && have_inactive == 1 && have_closed == 0){
+												    		var active =  0;
+													        var inactive = sum2;
+													        var closed = 0;	
+													        var data = [];
+													        data = [active, inactive, closed];
+													        document.getElementById("active").innerHTML = active;
+												        document.getElementById("inactive").innerHTML = inactive;
+								        				document.getElementById("closed").innerHTML = closed;
+
+												    	}
+												    	else if(have_active == 0 && have_inactive == 0 && have_closed == 1){
+												    		var active =  0;
+													        var inactive = 0;
+													        var closed = sum3;	
+													        var data = [];
+													        data = [active, inactive, closed];
+													        document.getElementById("active").innerHTML = active;
+												        document.getElementById("inactive").innerHTML = inactive;
+								        				document.getElementById("closed").innerHTML = closed;
+
+												    	}
+													}
+
+
+								       
+								        $('#sms-chart').highcharts({
+        chart: {
+            zoomType: 'none'
+        },
+		colors: "#e75c5c,#9159b8".split(","),
+         title: {
+            text: 'TOTAL PROFILES IN A MONTH',
+			style: {
+                color: "#4d575d",
+                fontSize: "14px",
+            },
+        },
+        xAxis: [{
+            categories: ['Active', 'In-Active', 'Closed']
+        }],
+        yAxis: [{ // Primary yAxis
+            labels: {
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            title: {
+                text: 'Number of Profiles',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
+        }],
+		legend: {
+            enabled: !0,
+            align: "right",
+			layout: "horizontal",
+            labelFormatter: function() {
+                return this.name
+            },
+            borderColor: false,
+            borderRadius: 0,
+            navigation: {
+                activeColor: "#274b6d",
+                inactiveColor: "#CCC"
+            },
+            shadow: false,
+            itemStyle: {
+                color: "#888888",
+                fontSize: "12px",
+                fontWeight: "normal"
+            },
+            itemHoverStyle: {
+                color: "#000"
+            },
+            itemHiddenStyle: {
+                color: "#CCC"
+            },
+            itemCheckboxStyle: {
+                position: "absolute",
+                width: "12px",
+                height: "12px"
+            },
+			symbolHeight: 10,
+			symbolWidth: 10,
+            symbolPadding: 5,
+            verticalAlign: "bottom",
+            x: 0,
+            y: 0,
+            title: {
+                style: {
+                    fontWeight: "normal"
+                }
+            }
+        },
+
+        tooltip: {
+            shared: true,
+			backgroundColor: '#ffffff',
+			borderColor: '#f0f0f0',
+			shadow: true
+        },
+		 credits: {
+            enabled: false,
+        },
+
+        series: [{
+            name: 'Number of Profiles',
+            type: 'column',
+            data: data,
+            tooltip: {
+                pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f}</b> '
+            }
+        }, {
+            name: 'Number of Profiles error',
+            type: 'errorbar',
+            data: data,
+            tooltip: {
+                pointFormat: '(error range: {point.low}-{point.high})<br/>'
+            }
+        }]
+    });
+
+								        							  
+										
+								    }
+
+					      
+					        });
+					        
+					    };
+
+					</script>
+		<div id="content" class="pmd-content inner-page">
+
+
+	
+		<div class="container-fluid full-width-container data-tables">
+		
+		 
+		 <!-- Today's Site Activity -->
+		 <h1 class="section-title" id="services">
+			<span>Profile Report</span>
+		</h1><!-- End Title -->
+	
+		<!--breadcrum start-->
+		<ol class="breadcrumb text-left">
+		  <li><a href="../../index.html">Dashboard</a></li>
+		  <li class="active">Profile Report</li>
+		  <li><a href="project_report.html">Project Report</a></li>		  
+		  <li><a href="ticket_report.html">Ticket Report</a></li>
+		</ol>
+		 
+		  <!-- User details-->
+		  <section class="row component-section">
+		 <div class="col-xs-12 col-sm-12 col-md-12">
+			<div style="height: 750px;" class="pmd-card pmd-z-depth sms-details">
+				
+				<div class="pmd-card-body content-section">
+					<div class="users-details-info">
+
+						<h2 class="pmd-display2">Overall Status</h2>
+
+						<p class=" source-regular">From:
+						<span id = "start_month_name"></span></p>
+						<p class=" source-regular">To:
+						<span id = "end_month_name"></span></p>
+
+						<p class=" source-regular">Active:
+						<span id = "active"></span></p>
+						<p class=" source-regular">In-Active:
+						<span id = "inactive"></span></p>
+						<p class=" source-regular">Close:						
+						<span id = "closed"></span></p>
+					</div>
+					<div class="col-md-6 col-sm-6"> 
+											<button data-target="#form-dialog" data-toggle="modal" class="btn pmd-ripple-effect btn-primary pmd-z-depth" type="button">Set Filter</button><br></br>
+											
+											<div tabindex="-1" class="modal fade" id="form-dialog" style="display: none;" aria-hidden="true">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header bordered">
+															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+															<h3 class="pmd-card-title-text">Change Password</h3>
+														</div>
+														<div class="modal-body">
+															<form class="form-horizontal">
+																<div class="form-group pmd-textfield pmd-textfield">
+																	<label for="first-name">From Date</label>
+																	<input type="date" id="start_date" class="form-control" value="">
+																	 </div>
+																<div class="form-group pmd-textfield pmd-textfield">
+																	<label for="first-name">To Date</label>
+																	<input type="date" id="end_date" class="form-control" value="">
+																</div>
+																<div class="form-group pmd-textfield pmd-textfield">
+																	<label for="first-name">Status</label>
+																	<select id="status" class="select-simple form-control pmd-select2" value="">
+																	<option></option>
+																	<option value="0">Active</option>
+																	<option value="1">In-Active</option>
+																	<option value="2">Closed</option>
+																	
+																</select>
+																</div>
+																
+															</form>
+														</div>
+														<div class="pmd-modal-action">
+															<button onclick="pre_profile_report()" data-dismiss="modal"  class="btn pmd-ripple-effect btn-primary" type="button">Apply Filter</button>
+															<button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Discard</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+					<!--chart start-->
+					<div id="sms-chart" class="users-details-chart"></div><!--chart end-->
+				 </div>
+				 <span class="btn-loader loader hidden">Loading...</span>
+			</div>
+		 </div><!-- end User Details-->
+		 
+		
+		 
+			 
+		 
+		</section>
+	</div>
+</div>
+
+
+
+<!-- Footer Starts -->
+<!--footer start-->
+<footer class="admin-footer">
+ <div class="container-fluid">
+ 	<ul class="list-unstyled list-inline">
+	 	<li>
+			<span class="pmd-card-subtitle-text">Synergy &copy; <span class="auto-update-year"></span>. All Rights Reserved.</span>
+			<!-- <h3 class="pmd-card-subtitle-text">Licensed under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license.</a></h3> -->
+        </li>
+        
+    </ul>
+ </div>
+</footer>
+<!--footer end-->
+<!-- Footer Ends -->
+<!-- Scripts Starts -->
+<script src="../../assets/js/jquery-1.12.2.min.js"></script>
+<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="../../assets/js/propeller.min.js"></script>
+<script>
+	$(document).ready(function() {
+		var sPath=window.location.pathname;
+		var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+		$(".pmd-sidebar-nav").each(function(){
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").addClass("open");
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").find('.dropdown-menu').css("display", "block");
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").find('a.dropdown-toggle').addClass("active");
+			$(this).find("a[href='"+sPage+"']").addClass("active");
+		});
+		$(".auto-update-year").html(new Date().getFullYear());
+	});
+</script> 
+
+<!-- Scripts Ends -->
+
+<script type="text/javascript">
+				// var data3 = 0; 
+				var x1 = document.getElementById("profiles_menu_id");
+				var x2 = document.getElementById("invoice_menu_id");
+				var x3 = document.getElementById("report_menu_id");	
+				var x4 = document.getElementById("project_menu_id");
+				var x5 = document.getElementById("add_project_menu_id");
+				var x6 = document.getElementById("add_invoice_menu_id");
+				var x7 = document.getElementById("profile_report_menu_id");
+				var x8 = document.getElementById("project_report_menu_id");
+				//for tech
+            	if (localStorage.data2 == 0) {
+							
+				 
+				 x1.style.display = "none";
+				 x2.style.display = "none";
+				 x4.style.display = "none";	
+				 x7.style.display = "none";
+				 x8.style.display = "none";			 
+				}
+				//for customer
+				if (localStorage.data3 == 1) {
+				
+				
+				 // x.style.display = "none";
+				 
+				 x1.style.display = "none";
+				 x3.style.display = "none";
+				 x5.style.display = "none";
+				 x6.style.display = "none";
+				}
+			</script>
+<!-- Datatable js -->
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+<!-- Datatable Bootstrap -->
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
+<!-- Datatable responsive js-->
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+
+<!-- Datatable select js-->
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script>
+
+<!-- Propeller Data table js-->
+<script src="../../themes/js/highcharts.js"></script>
+<script src="../../themes/js/highcharts-more.js"></script>
+<!-- <script>
+$( function smsChart() { 
+    $('#sms-chart').highcharts({
+        chart: {
+            zoomType: 'none'
+        },
+		colors: "#e75c5c,#9159b8".split(","),
+         title: {
+            text: 'TOTAL PROFILES IN A MONTH',
+			style: {
+                color: "#4d575d",
+                fontSize: "14px",
+            },
+        },
+        xAxis: [{
+            categories: ['Active', 'In-Active', 'Closed']
+        }],
+        yAxis: [{ // Primary yAxis
+            labels: {
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            title: {
+                text: 'Number of Profiles',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
+        }],
+		legend: {
+            enabled: !0,
+            align: "right",
+			layout: "horizontal",
+            labelFormatter: function() {
+                return this.name
+            },
+            borderColor: false,
+            borderRadius: 0,
+            navigation: {
+                activeColor: "#274b6d",
+                inactiveColor: "#CCC"
+            },
+            shadow: false,
+            itemStyle: {
+                color: "#888888",
+                fontSize: "12px",
+                fontWeight: "normal"
+            },
+            itemHoverStyle: {
+                color: "#000"
+            },
+            itemHiddenStyle: {
+                color: "#CCC"
+            },
+            itemCheckboxStyle: {
+                position: "absolute",
+                width: "12px",
+                height: "12px"
+            },
+			symbolHeight: 10,
+			symbolWidth: 10,
+            symbolPadding: 5,
+            verticalAlign: "bottom",
+            x: 0,
+            y: 0,
+            title: {
+                style: {
+                    fontWeight: "normal"
+                }
+            }
+        },
+
+        tooltip: {
+            shared: true,
+			backgroundColor: '#ffffff',
+			borderColor: '#f0f0f0',
+			shadow: true
+        },
+		 credits: {
+            enabled: false,
+        },
+
+        series: [{
+            name: 'Number of Profiles',
+            type: 'column',
+            data: [12, 5, 9],
+            tooltip: {
+                pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f}</b> '
+            }
+        }, {
+            name: 'Number of Profiles error',
+            type: 'errorbar',
+            data: [7, 6, 9],
+            tooltip: {
+                pointFormat: '(error range: {point.low}-{point.high})<br/>'
+            }
+        }]
+    });
+});
+</script> -->
+
+
+</body>
+</html>

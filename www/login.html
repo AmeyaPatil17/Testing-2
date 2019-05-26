@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Login | Propeller - Admin Dashboard">
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+<title>Synergy</title>
+<link rel="shortcut icon" type="image/x-icon" href="themes/images/favicon.ico">
+
+<!-- Google icon -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Bootstrap css -->
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+<!-- Propeller css -->
+<link rel="stylesheet" type="text/css" href="assets/css/propeller.min.css">
+
+<!-- Propeller theme css-->
+<link rel="stylesheet" type="text/css" href="themes/css/propeller-theme.css" />
+
+<!-- Propeller admin theme css-->
+<link rel="stylesheet" type="text/css" href="themes/css/propeller-admin.css">
+
+</head>
+
+<body onload="checklogin()" class="body-custom">
+<div class="logincard">
+  	<div class="pmd-card card-default pmd-z-depth">
+		<div class="login-card">
+			<form>	
+				<div class="pmd-card-title card-header-border text-center">
+					<div class="loginlogo">
+						<a href="javascript:void(0);"><img src="themes/images/synergy-logo-black.png" alt="Logo"></a>
+					</div>
+					<h3>Think of <span>IT <strong>Think of US</strong></span></h3>
+				</div>
+				
+				<div class="pmd-card-body">
+					<div id="alertid" class="alert alert-success" role="alert"> Oh snap! Change a few things up and try submitting again. </div>
+                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                        <label for="inputError1" class="control-label pmd-input-group-label">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">perm_identity</i></div>
+                            <input type="email" class="form-control" id="username" value = "" autocomplete="true">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                        <label for="inputError1" class="control-label pmd-input-group-label">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">lock_outline</i></div>
+                            <input type="password" class="form-control" id="password" value="" autocomplete="true">
+                        </div>
+                    </div>
+                </div>
+				<div class="pmd-card-footer card-footer-no-border card-footer-p16 text-center">
+					<div class="form-group clearfix">
+						<div class="checkbox pull-left">
+							<label class="pmd-checkbox checkbox-pmd-ripple-effect">
+								<input id="remember_me" type="checkbox" checked="" value="">
+								<span class="pmd-checkbox"> Remember me</span>
+							</label>
+						</div>
+						<span class="pull-right forgot-password">
+							<a href="javascript:void(0);">Forgot password?</a>
+						</span>
+					</div>
+					<Script>
+						checklogin = function(){
+							if(localStorage.myemail === undefined) {
+											        }
+											        else{
+
+							var username = localStorage.myemail;
+					    	var password = localStorage.mypass;
+					    	// console.log(data1);
+					    	// console.log(data2);
+
+
+					        $.ajax({
+					            url : "http://supervisabrampton.com/index.php/api/request/",
+					            type : 'POST',
+					            data : JSON.stringify({
+					                "jsonrpc" : "2.0",
+					                "method" : "signin",
+					                "id" : "1",
+					                   "params": {
+												     "email": username,
+												     "password": password
+
+					            				},
+					            dataType : "json",
+					            contentType: "application/json"
+					            
+					                }),
+					                success: function (result) {
+					                	if(typeof result.error !== 'undefined') {
+									        if (code2 = 401) {
+									        	sessionStorage.clear();
+            									localStorage.clear();
+									        window.location.href = "login.html";
+									   		}	
+									    		}
+									    		else{
+									    			// console.log("done done");
+
+					                	window.location.href = "index.html";
+					                }
+
+					                	}
+					                });
+					    }
+
+						}
+					    JSONTest = function() {
+					    	
+					    	localStorage.clear();
+					    	var username = document.getElementById('username').value;
+					    	var password = document.getElementById('password').value;
+					    	// console.log(data1);
+					    	// console.log(data2);
+
+
+					        $.ajax({
+					            url : "http://supervisabrampton.com/index.php/api/request/",
+					            type : 'POST',
+					            data : JSON.stringify({
+					                "jsonrpc" : "2.0",
+					                "method" : "signin",
+					                "id" : "1",
+					                   "params": {
+												     "email": username,
+												     "password": password
+
+					            				},
+					            dataType : "json",
+					            contentType: "application/json"
+					            
+					                }),
+					                success: function (result) {
+					                	
+								        // console.log(result);
+								        // var code2 = result.error.code;
+								        // console.log(code2);
+
+									    if(typeof result.error !== 'undefined') {
+									        if (code2 = 401) {
+									        alert ("Something is wrong; please try again");
+									   		}	
+									    		}
+									    		else{
+									    			// console.log("done done");
+
+									    		
+											
+								        
+								        var code = result.result.code;
+								        var name = result.result.name;
+								        var is_customer = result.result.is_customer;
+								        var internal_user_external_user = result.result.internal_user_external_user;
+								        var id = result.result.id;
+								        var email = result.result.email;
+								        
+								        
+								        // console.log(email);
+								        localStorage.setItem('myname', name);
+								        localStorage.setItem('data2', internal_user_external_user);
+								        localStorage.setItem('data3', is_customer);
+								        localStorage.setItem('myemail', email);
+								        localStorage.setItem('myid', id);
+								        localStorage.setItem('mypass', password);
+								        
+								        if (code = 200) {
+								        window.location.href = "index.html";
+								    }		
+								    }				    
+								    },
+								    error: function () {
+								    						              					           
+								        // console.log(error);								
+
+								    }
+					            
+					        
+					      
+					        });
+					       
+					    };
+
+					    //Forgot password
+
+					    JSONTest2 = function() {
+					    	localStorage.clear();
+					    	var username2 = document.getElementById('forgot_email').value;
+					    	// var password = document.getElementById('password').value;
+					    	// console.log(data1);
+					    	// console.log(data2);
+
+
+					        $.ajax({
+					            url : "http://supervisabrampton.com/index.php/api/request/",
+					            type : 'POST',
+					            data : JSON.stringify({
+					                "jsonrpc" : "2.0",
+					                "method" : "forgotPassword",
+					                "id" : "1",
+					                   "params": {
+												     "email": username2
+												     
+
+					            				},
+					            dataType : "json",
+					            contentType: "application/json"
+					            
+					                }),
+					                success: function (result) {
+					                	
+								        // console.log(result);
+								        // var code2 = result.error.code;
+								        // console.log(code2);
+
+									    if(typeof result.error !== 'undefined') {
+									    	var code3 = result.error.code;
+									        if (code3 = 401) {
+									        alert ("This email ID is not registered. please contact SynergyInteract");
+									   		}
+									   		else if (code3 = 503){
+									   			alert ("Error sending email. Please try again later!");
+
+									   		}	
+									    		}
+									    		else{
+									    			// console.log("done done");
+									    			alert ("We have sent you an email to reset your password!");		
+								    				}				    
+								    },
+								    error: function () {
+								    						              					           
+								        // console.log(error);								
+
+								    }
+					            
+					        
+					      
+					        });
+					       
+					    };
+
+					</script>
+
+					<button type="button" id="login" onClick="JSONTest()" class="btn pmd-ripple-effect btn-primary btn-block">Login</button>
+                    
+					<p class="redirection-link"> </p>
+                    <span>Powered by SynergyIT Solutions Group inc.</span>
+				</div>
+				
+			</form>
+		</div>
+		
+		
+		
+		<div class="forgot-password-card">
+			<form>	
+			  <div class="pmd-card-title card-header-border text-center">
+				<div class="loginlogo">
+					<a href="javascript:void(0);"><img src="themes/images/synergy-logo-black.png" alt="Logo"></a>
+				</div>
+				<h3>Forgot password?<br><span>Submit your email address and we'll send you a link to reset your password.</span></h3>
+			</div>
+			  <div class="pmd-card-body">
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+                        <label for="inputError1" class="control-label pmd-input-group-label">Email address</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">email</i></div>
+                            <input type="text" class="form-control" id="forgot_email">
+                        </div>
+                    </div>
+				</div>
+			  <div class="pmd-card-footer card-footer-no-border card-footer-p16 text-center">
+			  	<a onClick="JSONTest2()" type="button" class="btn pmd-ripple-effect btn-primary btn-block">Submit</a>
+			  	<p class="redirection-link">Already registered? <a href="javascript:void(0);" class="register-login">Sign In</a></p>
+			  </div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- Scripts Starts -->
+
+<script src="assets/js/jquery-1.12.2.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/propeller.min.js"></script>
+<script src="assets/js/jquery.cookie.js"></script>
+<script>
+	 $(document).ready(function() {
+	 	console.log("start");
+
+        var remember = $.cookie('remember');
+        if (remember == 'true') 
+        {
+            var email = $.cookie('email');
+            var password = $.cookie('password');
+            // autofill the fields
+            console.log("cookie filling");
+            $('#username').val(email);
+            $('#password').val(password);
+        }
+
+
+    $("#login").submit(function() {
+        if ($('#remember_me').is(':checked')) {
+            var email = $('#username').val();
+            var password = $('#password').val();
+
+            console.log("cookie saved");
+            // set cookies to expire in 14 days
+            $.cookie('email', email, { expires: 14 });
+            $.cookie('password', password, { expires: 14 });
+            $.cookie('remember', true, { expires: 14 });                
+        }
+        else
+        {
+            // reset cookies
+            console.log("cookie reset");
+            $.cookie('email', null);
+            $.cookie('password', null);
+            $.cookie('remember', null);
+        }
+  });
+});
+</script>
+<script>
+	$(document).ready(function() {
+		var sPath=window.location.pathname;
+		var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+		$(".pmd-sidebar-nav").each(function(){
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").addClass("open");
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").find('.dropdown-menu').css("display", "block");
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").find('a.dropdown-toggle').addClass("active");
+			$(this).find("a[href='"+sPage+"']").addClass("active");
+		});
+	});
+</script>
+<!-- login page sections show hide -->
+<script type="text/javascript">
+	$(document).ready(function(){
+	 $('.app-list-icon li a').addClass("active");
+		$(".login-for").click(function(){
+			$('.login-card').hide()
+			$('.forgot-password-card').show();
+		});
+		$(".signin").click(function(){
+			$('.login-card').show()
+			$('.forgot-password-card').hide();
+		});
+	});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+		$(".login-register").click(function(){
+			$('.login-card').hide()
+			$('.forgot-password-card').hide();
+			$('.register-card').show();
+		});
+		
+		$(".register-login").click(function(){
+			$('.register-card').hide()
+			$('.forgot-password-card').hide();
+			$('.login-card').show();
+		});
+		$(".forgot-password").click(function(){
+			$('.login-card').hide()
+			$('.register-card').hide()
+			$('.forgot-password-card').show();
+		});	
+});
+</script> 
+
+
+
+</body>
+</html>

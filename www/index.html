@@ -1,0 +1,603 @@
+<!doctype html>
+<script>document.addEventListener('deviceready', function () {
+  // Enable to debug issues.
+  // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+  
+  var notificationOpenedCallback = function(jsonData) {
+    console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+  };
+
+  window.plugins.OneSignal
+    .startInit("0633d686-ff17-41da-89df-805d2b16efe6")
+    .handleNotificationOpened(notificationOpenedCallback)
+    .endInit();
+}, false);</script>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Propeller Admin Dashboard">
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+
+<title>Synergy</title>
+<meta name="description" content="Admin is a material design and bootstrap based responsive dashboard template created mainly for admin and backend applications."/>
+
+<link rel="shortcut icon" type="image/x-icon" href="themes/images/favicon.ico">
+
+<!-- Google icon -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Bootstrap css -->
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+<!-- Propeller css -->
+<!-- build:[href] assets/css/ -->
+<link rel="stylesheet" type="text/css" href="assets/css/propeller.min.css">
+<!-- /build -->
+
+<!-- Propeller date time picker css-->
+<link rel="stylesheet" type="text/css" href="components/datetimepicker/css/bootstrap-datetimepicker.css" />
+<link rel="stylesheet" type="text/css" href="components/datetimepicker/css/pmd-datetimepicker.css" />
+
+<!-- Propeller theme css-->
+<link rel="stylesheet" type="text/css" href="themes/css/propeller-theme.css" />
+
+<!-- Propeller admin theme css-->
+<link rel="stylesheet" type="text/css" href="themes/css/propeller-admin.css">
+
+</head>
+
+<body onload="dashboard_count()">
+<!-- Header Starts -->
+<!--Start Nav bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top pmd-navbar pmd-z-depth">
+
+	<div class="container-fluid">
+
+		<div class="pull-right navigation">
+			<h5><a id="profile_pic" href="pages/dashboard/setting.html"><img id="myImg" style="border-radius: 50%; width: 50px; height: 50px; vertical-align: middle;" src='themes/images/user-icon.png'></a></h5>
+			
+			<!-- <h5><img src='themes/images/user-icon.png'><script type="text/javascript">
+            	document.write(" Hello "+localStorage.myname+".");
+            					
+            </script></h5> -->
+			
+            <!-- <script type="text/javascript">
+            	document.write("<h2><img src='themes/images/user-icon.png'> Hello "+localStorage.myname+".</h2>");
+            					
+            </script> -->
+		</div>
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+
+			<a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1200" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pull-left margin-r8 pmd-sidebar-toggle"><i class="material-icons md-light">menu</i></a>	
+		  <a href="index.html" class="navbar-brand">
+		  			  	
+		  </a>
+		</div>
+	</div>
+
+</nav><!--End Nav bar -->
+<!-- Header Ends -->
+
+<!-- Sidebar Starts -->
+<div class="pmd-sidebar-overlay"></div>
+
+<!-- Left sidebar -->
+<aside id="basicSidebar" class="pmd-sidebar  sidebar-default pmd-sidebar-slide-push pmd-sidebar-left pmd-sidebar-close bg-fill-darkblue sidebar-with-icons" role="navigation">
+	<ul class="nav pmd-sidebar-nav">
+		
+		<!-- User info -->
+		<li class="dropdown pmd-dropdown pmd-user-info visible-xs visible-md visible-sm visible-lg">
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" aria-expandedhref="javascript:void(0);">
+				<div class="media-left">
+					<img src="themes/images/synergy-logo.png" alt="New User">
+				</div>
+				<div class="media-body media-middle"></div>
+				<div class="media-right media-middle"><i class="dic-more-vert dic"></i></div>
+			</a>
+			</li><!-- End user info -->
+		
+		<li> 
+			<a class="pmd-ripple-effect" href="index.html">	
+				<i class="media-left media-middle"><svg version="1.1" x="0px" y="0px" width="19.83px" height="18px" viewBox="287.725 407.535 19.83 18" enable-background="new 287.725 407.535 19.83 18"
+	 xml:space="preserve">
+<g>
+	<path fill="#C9C8C8" d="M307.555,407.535h-9.108v10.264h9.108V407.535z M287.725,407.535v6.232h9.109v-6.232H287.725z
+		 M296.834,415.271h-9.109v10.264h9.109V415.271z M307.555,419.303h-9.108v6.232h9.108V419.303z"/>
+</g>
+</svg></i>
+				<span class="media-body">Dashboard</span>
+			</a> 
+		</li>
+		
+		<li id ="project_menu_id" class="dropdown pmd-dropdown"> 
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
+				<i class="media-left media-middle"><svg version="1.1" x="0px" y="0px" width="18px" height="12.706px" viewBox="0 0 18 12.706" enable-background="new 0 0 18 12.706" xml:space="preserve">
+<path fill="#C9C8C8" d="M0,0v12.706h18V0H0z M12.706,4.235v3.176H9.108V4.235H12.706z M8.049,4.235v3.176h-6.99V4.235H8.049z
+	 M1.059,8.47h6.99v3.177h-6.99V8.47z M9.108,11.647V8.47h3.599v3.177H9.108z M13.766,11.647V8.47h3.176v3.177H13.766z M16.942,7.412
+	h-3.176V4.235h3.176V7.412L16.942,7.412z"/>
+</svg></i> 
+				<span class="media-body">Projects</span>
+				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+			</a> 
+			<ul class="dropdown-menu">
+				<li id ="add_project_menu_id"><a href="pages/projects/add_project.html">Add Project</a></li>
+				<li><a href="pages/projects/list_project.html">List Projects</a></li>
+				
+			</ul>
+		</li>
+		
+		<li id ="invoice_menu_id" class="dropdown pmd-dropdown"> 
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
+				<i class="material-icons media-left pmd-sm">receipt</i> 
+				<span class="media-body">Invoice</span>
+				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+			</a> 
+			<ul class="dropdown-menu">
+				<li id ="add_invoice_menu_id"><a href="pages/invoice/add_invoice.html">Add Invoice</a></li>
+				<li><a href="pages/invoice/list_invoice.html">List Invoices</a></li>
+				<li><a href="pages/invoice/payment_history.html">Payment History</a></li>				
+			</ul>
+		</li>
+		
+		
+		
+		<li id ="profiles_menu_id" class="dropdown pmd-dropdown"> 
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
+				<i class="material-icons media-left pmd-sm">account_circle</i> 
+				<span class="media-body">Profiles</span>
+				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+			</a> 
+			<ul class="dropdown-menu">
+				<li><a href="pages/profiles/Employee_Profiles.html">Employee Profiles</a></li>
+				<li><a href="pages/profiles/Tech_Profiles.html">Tech Profiles</a></li>
+				<li><a href="pages/profiles/Customer_Profiles.html">Customer Profiles</a></li>
+			</ul>
+		</li>
+
+		<li id ="report_menu_id" class="dropdown pmd-dropdown"> 
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
+				<i class="material-icons media-left pmd-sm">library_books</i> 
+				<span class="media-body">Reports</span>
+				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+			</a> 
+			<ul class="dropdown-menu">
+				<li id = "profile_report_menu_id"><a href="pages/reports/profile_report.html">Profile Report</a></li>
+				<li id = "project_report_menu_id"><a href="pages/reports/project_report.html">Project Report</a></li>
+				<li id = "ticket_report_menu_id"><a href="pages/reports/ticket_report.html">Ticket Report</a></li>
+			</ul>
+		</li>
+
+		
+		<li> 
+			<a class="pmd-ripple-effect">	
+				<i class="media-left media-middle">
+				<svg version="1.1" id="Layer_1" x="0px" y="0px" width="18px" height="18px" viewBox="288.64 337.535 18 18" enable-background="new 288.64 337.535 18 18" xml:space="preserve">
+				<path fill="#C9C8C8" d="M295.39,337.535v2.25h9v13.5h-9v2.25h11.25v-18H295.39z M297.64,342.035v3.375h-9v2.25h9v3.375l3.375-3.375
+					l1.125-1.125l-1.125-1.125L297.64,342.035z"/>
+				</svg></i> 
+				<script type="text/javascript">
+					logout = function() {
+						sessionStorage.clear();
+            			localStorage.clear();
+            			window.location.href = "login.html";
+            			}
+            	</script>
+				<span class="media-body" onClick="logout()">Log Out</span>
+			</a> 
+		</li>
+		
+		
+	</ul>
+	<div class="media-right media-bottom"><span style="color: white; padding-top: 250px" class="media-body">Version Number 1.0.0</span></div>
+	
+</aside><!-- End Left sidebar -->
+<!-- Sidebar Ends -->  
+	
+<!--content area start-->
+
+<div id="content" class="pmd-content content-area dashboard">
+
+	<div class="container-fluid">
+		<div class="row" id="card-masonry">
+		 <!--Statistics-->
+		 <div class="col-xs-12 col-sm-12 col-md-12">
+			<div class=" pmd-z-depth-3 pmd-card pmd-z-depth statistics-content">      
+				<div class="pmd-card-title">
+					<div class="media-left">
+					<i class="material-icons md-dark pmd-md">dashboard</i> 
+						
+					</div>
+					<div class="media-body media-middle">
+						<i class="material-icons md-dark pmd-md"><h2 class="pmd-card-title-text typo-fill-secondary">Dashboard</h2></i>
+						</div>
+				</div>
+				<div class=" pmd-card-body statistics text-center">
+					<ul class="list-group list-inline">
+						<li id ="pending_invoice">
+							<div class="statistic-img-circle">
+								<a data-target='#form-dialog' data-toggle='modal'><i  class=" pmd-badge .pmd-badge-overlap material-icons md-dark pmd-md">attach_money</i></a>
+							</div>
+							<div  class="pmd-display2"></div>
+							<div class="source-semibold typo-fill-secondary">Pending Invoice</div>
+						</li>
+						<li id ="workid">
+							<div class="statistic-img-circle">
+								<a href="pages/dashboard/workload.html"><i id = "open_workorder" data-badge="" class=" pmd-badge .pmd-badge-overlap material-icons md-dark pmd-md">work</i></a>
+							</div>
+							<div  class="pmd-display2"></div>
+							<div class="source-semibold typo-fill-secondary">Open Workorder</div>
+						</li>
+						<li>
+							<div class="statistic-img-circle">
+								<a href="pages/dashboard/notification.html"><i id = "open_notification" data-badge="" class=" pmd-badge .pmd-badge-overlap material-icons md-dark pmd-md">notifications_active</i></a>
+							</div>
+							<div class="pmd-display2"></div>
+							<div class="source-semibold typo-fill-secondary">Open Notification</div>
+						</li>
+						<li id = "ticketid">
+							<div class="statistic-img-circle">
+								<a href="pages/dashboard/ticket.html"><i id = "open_ticket" data-badge="" class="pmd-badge .pmd-badge-overlap material-icons md-dark pmd-md">insert_drive_file</i></a>
+								
+							</div>
+							<div class="pmd-display2"></div>
+							<div class="source-semibold typo-fill-secondary">Open Tickets</div>
+						</li>
+						<li id="projectid";>
+							<div class="statistic-img-circle">
+								<a href="pages/projects/list_project.html"><i id = "open_project" data-badge="" class="pmd-badge .pmd-badge-overlap material-icons md-dark pmd-md">poll</i></a>
+							</div>
+							<div class="pmd-display2"></div>
+							<div class="source-semibold typo-fill-secondary">Open Projects</div>
+						</li>
+						<li>
+							<div class="statistic-img-circle">
+								<a href="pages/dashboard/message.html"><i id = "open_message" data-badge="" class="pmd-badge .pmd-badge-overlap material-icons md-dark pmd-md">message</i></a>
+							</div>
+							<div class="pmd-display2"></div>
+							<div class="source-semibold typo-fill-secondary">Message Box</div>
+						</li>
+						<li>
+							<div class="statistic-img-circle">
+								<a href="pages/dashboard/setting.html"><i class="material-icons md-dark pmd-md">settings</i></a>
+							</div>
+							<div class="pmd-display2"></div>
+							<div class="source-semibold typo-fill-secondary">Setting</div>
+						</li>
+					</ul>
+				</div>
+				<span class="btn-loader loader hidden">Loading...</span>
+			</div>
+		 </div><!-- end statistics-->
+		 <!-- Today's Site Activity -->
+		<div tabindex="-1" class="modal fade" id="form-dialog" style="display: none;" aria-hidden="true">
+												<div style="width: 85%;" class="modal-dialog">
+													<div  class="modal-content">
+														<div class="modal-header bordered">
+															<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+															<h3 class="pmd-card-title-text">Total Outstanding Balance</h3>
+															<!-- <label>(In CAD)</label> -->
+														</div>
+
+														<div class="modal-body">
+															<!--Blockquote along with the source-->
+															
+
+															<div class="form-group pmd-textfield">
+																	
+																	
+																	<h2><span id= "pending_invoice_data"></span></h2>
+																
+																
+															
+														</div>
+
+															
+																
+														
+													</div>
+												</div>
+											</div>
+		
+	
+	</div>
+	</div>
+</div>
+
+</div><!--end content area-->
+
+<!-- Footer Starts -->
+<!--footer start-->
+<footer class="admin-footer">
+ <div class="container-fluid">
+ 	<ul class="list-unstyled list-inline">
+	 	<li>
+	 		<center>
+	 			<span id = "dateandtime"></span>
+			<span class="pmd-card-subtitle-text">SynergyIT Solutions Group inc. &copy; <span class="auto-update-year"></span>. All Rights Reserved.</span>
+			<!-- <h3 class="pmd-card-subtitle-text">Licensed under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license.</a></h3> -->
+			</center>
+        </li>
+        
+    </ul>
+ </div>
+</footer>
+<!--footer end-->
+<!-- Footer Ends -->
+<Script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('dateandtime').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+	function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+
+					    dashboard_count = function() {
+					    	if(localStorage.myemail === undefined) {
+					    		window.location.href = "login.html";
+											        }
+					    startTime();				    					    	
+
+					        $.ajax({
+					            url : "http://supervisabrampton.com/index.php/api/request/",
+					            type : 'POST',
+					            data : JSON.stringify({
+					                "jsonrpc" : "2.0",
+					                "method" : "dashboardCounters",
+					                "id" : "1",
+					                   "params": {
+					                   				 "id": localStorage.myid,
+								                     "is_customer": localStorage.data3,
+								                     "internal_user_external_user": localStorage.data2
+												     // "id": "1022",
+								         //             "is_customer": "0",//data3
+								         //             "internal_user_external_user": "1"//data2
+
+
+					            				},
+					            dataType : "json",
+					            contentType: "application/json"
+					            
+					                }),
+					                success: function (result) {
+					                	console.log(localStorage.myid);
+								        console.log(result);
+								        var json = result.result.list;
+								        //if it is employee
+								        if(localStorage.data2 == 1){
+								        	var workorder_count = json.open_workorders;
+										        var notification_count = json.notifications;
+										        var ticket_count = json.open_tickets;
+										        var project_count = json.open_projects;
+										        var message_count = json.new_messages;
+										        var profile_pic_link = json.profile_picture;
+										        sessionStorage.setItem("p_link", profile_pic_link);
+										        document.getElementById("myImg").src = profile_pic_link;
+										        // document.getElementById("myImg").src = profile_pic_link;
+										        
+										        
+										            // document.getElementById("open_workorder").innerHTML = workorder_count;
+										            // document.getElementById("open_notification").innerHTML = notification_count;
+										            // document.getElementById("open_ticket").innerHTML = ticket_count;
+										            // document.getElementById("open_project").innerHTML = project_count;
+										            // document.getElementById("open_message").innerHTML = message_count;
+										            idworkorder = document.getElementById('open_workorder');
+										            idnotification = document.getElementById('open_notification');
+										            idticket = document.getElementById('open_ticket');
+										            idproject = document.getElementById('open_project');
+										            idmessage = document.getElementById('open_message');
+
+
+           											idworkorder.setAttribute('data-badge', workorder_count);
+           											idnotification.setAttribute('data-badge', notification_count);
+           											idticket.setAttribute('data-badge', ticket_count);
+           											idproject.setAttribute('data-badge', project_count);
+           											idmessage.setAttribute('data-badge', message_count);
+								        	
+
+								        }
+								        //if it is tech
+								        else if(localStorage.data2 == 2)
+								        {
+								        	var workorder_count = json.open_workorders;
+										        var notification_count = json.notifications;
+										        var ticket_count = json.open_tickets;
+										        // var project_count = json.open_projects;
+										        var message_count = json.new_messages;
+										        
+										        
+										            // document.getElementById("open_workorder").innerHTML = workorder_count;
+										            // document.getElementById("open_notification").innerHTML = notification_count;
+										            // document.getElementById("open_ticket").innerHTML = ticket_count;
+										            // document.getElementById("open_project").innerHTML = project_count;
+										            // document.getElementById("open_message").innerHTML = message_count;
+										            idworkorder = document.getElementById('open_workorder');
+										            idnotification = document.getElementById('open_notification');
+										            idticket = document.getElementById('open_ticket');
+										            // idproject = document.getElementById('open_project');
+										            idmessage = document.getElementById('open_message');
+
+
+           											idworkorder.setAttribute('data-badge', workorder_count);
+           											idnotification.setAttribute('data-badge', notification_count);
+           											idticket.setAttribute('data-badge', ticket_count);
+           											// idproject.setAttribute('data-badge', project_count);
+           											idmessage.setAttribute('data-badge', message_count);
+								        	
+
+								        }
+								        // if it is customer
+								        else{
+								        	// var workorder_count = json.open_workorders;
+										        var notification_count = json.notifications;
+										        // var ticket_count = json.open_tickets;
+										        var project_count = json.my_projects;
+										        var message_count = json.new_messages;
+										        var pending_invoice = json.pending_invoice_amount;
+										        console.log(result.result.list.pending_invoice_amount);
+										        
+										        
+										            document.getElementById("pending_invoice_data").innerHTML = pending_invoice;
+										            // document.getElementById("open_notification").innerHTML = notification_count;
+										            // document.getElementById("open_ticket").innerHTML = ticket_count;
+										            // document.getElementById("open_project").innerHTML = project_count;
+										            // document.getElementById("open_message").innerHTML = message_count;
+										            // idworkorder = document.getElementById('open_workorder');
+										            idnotification = document.getElementById('open_notification');
+										            // idticket = document.getElementById('open_ticket');
+										            idproject = document.getElementById('open_project');
+										            idmessage = document.getElementById('open_message');
+
+
+           											// idworkorder.setAttribute('data-badge', workorder_count);
+           											idnotification.setAttribute('data-badge', notification_count);
+           											// idticket.setAttribute('data-badge', ticket_count);
+           											idproject.setAttribute('data-badge', project_count);
+           											idmessage.setAttribute('data-badge', message_count);
+								        	
+
+								        }
+
+
+												
+										         
+
+										        
+										
+
+										
+								    }
+
+					      
+					        });
+													        
+								
+								 
+								       
+								 
+								
+													        
+					    };
+
+					</script>
+<!-- Scripts Starts -->
+<script type="text/javascript">
+				// var data3 = 0; 
+				var x = document.getElementById("projectid");
+				var x1 = document.getElementById("workid");
+				var x2 = document.getElementById("ticketid");
+				var x3 = document.getElementById("profiles_menu_id");
+				var x4 = document.getElementById("invoice_menu_id");
+				var x5 = document.getElementById("report_menu_id");	
+				var x6 = document.getElementById("project_menu_id");
+				var x7 = document.getElementById("add_project_menu_id");
+				var x8 = document.getElementById("add_invoice_menu_id");
+				var x9 = document.getElementById("profile_report_menu_id");
+				var x10 = document.getElementById("project_report_menu_id");
+				var x11 = document.getElementById("pending_invoice");
+				//for employee
+				if (localStorage.data2 == 1) {
+					x11.style.display = "none";
+
+				}
+
+
+				//for tech
+            	else if (localStorage.data2 == 2) {
+							
+				 x.style.display = "none";
+				 x3.style.display = "none";
+				 x4.style.display = "none";
+				 x6.style.display = "none";
+				 x9.style.display = "none";
+				 x10.style.display = "none";
+				 x11.style.display = "none";				 
+				}
+				//for customer
+				else if (localStorage.data3 == 1) {
+				
+				
+				 // x.style.display = "none";
+				 x1.style.display = "none";
+				 x2.style.display = "none";
+				 x3.style.display = "none";
+				 x5.style.display = "none";
+				 x7.style.display = "none";
+				 x8.style.display = "none";
+				}
+			</script>
+<script src="assets/js/jquery-1.12.2.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function() {
+		var sPath=window.location.pathname;
+		var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+		$(".pmd-sidebar-nav").each(function(){
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").addClass("open");
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").find('.dropdown-menu').css("display", "block");
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").find('a.dropdown-toggle').addClass("active");
+			$(this).find("a[href='"+sPage+"']").addClass("active");
+		});
+	});
+</script>
+<script type="text/javascript">
+(function() {
+  "use strict";
+  var toggles = document.querySelectorAll(".c-hamburger");
+  for (var i = toggles.length - 1; i >= 0; i--) {
+    var toggle = toggles[i];
+    toggleHandler(toggle);
+  };
+  function toggleHandler(toggle) {
+    toggle.addEventListener( "click", function(e) {
+      e.preventDefault();
+      (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+    });
+  }
+
+})();
+</script>
+
+<script src="assets/js/propeller.min.js"></script> 
+
+<!-- Javascript for revenue progressbar animation effect-->
+
+<!-- Javascript for revenue progressbar animation effect-->	
+
+
+<!--circle chart-->
+<script src="themes/js/circles.min.js"></script>
+
+
+<!--staked column chart for payment-->
+<script src="themes/js/highcharts.js"></script>
+<script src="themes/js/highcharts-more.js"></script>
+
+<!-- Payment chart js-->
+
+
+<!--staked column chart for sms details-->
+
+<!-- Scripts Ends -->
+<!-- Javascript for Datepicker -->
+<script type="text/javascript" language="javascript" src="components/datetimepicker/js/moment-with-locales.js"></script>
+<script type="text/javascript" language="javascript" src="components/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script>
+	// Linked date and time picker 
+	// start date date and time picker 
+	$('#datepicker-default').datetimepicker();
+	$(".auto-update-year").html(new Date().getFullYear());
+</script> 
+
+</body>
+</html>

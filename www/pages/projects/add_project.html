@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Propeller Admin Dashboard">
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+
+<title>Synergy</title>
+
+
+<meta name="description" content="Admin is a material design and bootstrap based responsive dashboard template created mainly for admin and backend applications."/>
+
+<link rel="shortcut icon" type="image/x-icon" href="../../themes/images/favicon.ico">
+
+<!-- Google icon -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Select2 css-->
+<link rel="stylesheet" type="text/css" href="../../components/select2/css/select2.min.css" />
+<link rel="stylesheet" type="text/css" href="../../components/select2/css/select2-bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="../../components/select2/css/pmd-select2.css" />
+<!-- Bootstrap css -->
+<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.min.css">
+
+<!-- Propeller css -->
+<!-- build:[href] assets/css/ -->
+<link rel="stylesheet" type="text/css" href="../../assets/css/propeller.min.css">
+<!-- /build -->
+
+<!-- Propeller date time picker css-->
+<link rel="stylesheet" type="text/css" href="../../components/datetimepicker/css/bootstrap-datetimepicker.css" />
+<link rel="stylesheet" type="text/css" href="../../components/datetimepicker/css/pmd-datetimepicker.css" />
+
+<!-- Propeller theme css-->
+<link rel="stylesheet" type="text/css" href="../../themes/css/propeller-theme.css" />
+
+<!-- Propeller admin theme css-->
+<link rel="stylesheet" type="text/css" href="../../themes/css/propeller-admin.css">
+
+</head>
+
+<body onload="show_project()">
+<!-- Header Starts -->
+<!--Start Nav bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top pmd-navbar pmd-z-depth">
+
+	<div class="container-fluid">
+		<div class="pmd-navbar-right-icon pull-right navigation">
+			<!-- <script type="text/javascript">
+            	document.write("<h2>Hello "+localStorage.myname+".</h2>");
+            </script> -->
+            
+		</div>
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+
+			<a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1200" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pull-left margin-r8 pmd-sidebar-toggle"><i class="material-icons md-light">menu</i></a>	
+		  <a href="../../index.html" class="navbar-brand">
+		  			  	
+		  </a>
+		</div>
+	</div>
+
+</nav><!--End Nav bar -->
+<!-- Header Ends -->
+
+<!-- Sidebar Starts -->
+<div class="pmd-sidebar-overlay"></div>
+
+<!-- Left sidebar -->
+<aside id="basicSidebar" class="pmd-sidebar  sidebar-default pmd-sidebar-slide-push pmd-sidebar-left pmd-sidebar-close bg-fill-darkblue sidebar-with-icons" role="navigation">
+	<ul class="nav pmd-sidebar-nav">
+		
+		<!-- User info -->
+		<li class="dropdown pmd-dropdown pmd-user-info visible-xs visible-md visible-sm visible-lg">
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" aria-expandedhref="javascript:void(0);">
+				<div class="media-left">
+					<img src="../../themes/images/synergy-logo.png" alt="New User">
+				</div>
+				<div class="media-body media-middle"></div>
+				<div class="media-right media-middle"><i class="dic-more-vert dic"></i></div>
+			</a>
+			</li><!-- End user info -->
+		
+		<li> 
+			<a class="pmd-ripple-effect" href="../../index.html">	
+				<i class="media-left media-middle"><svg version="1.1" x="0px" y="0px" width="19.83px" height="18px" viewBox="287.725 407.535 19.83 18" enable-background="new 287.725 407.535 19.83 18"
+	 xml:space="preserve">
+<g>
+	<path fill="#C9C8C8" d="M307.555,407.535h-9.108v10.264h9.108V407.535z M287.725,407.535v6.232h9.109v-6.232H287.725z
+		 M296.834,415.271h-9.109v10.264h9.109V415.271z M307.555,419.303h-9.108v6.232h9.108V419.303z"/>
+</g>
+</svg></i>
+				<span class="media-body">Dashboard</span>
+			</a> 
+		</li>
+		
+		
+		<li class="dropdown pmd-dropdown"> 
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
+				<i class="material-icons media-left pmd-sm">receipt</i> 
+				<span class="media-body">Invoice</span>
+				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+			</a> 
+			<ul class="dropdown-menu">
+				<li><a href="../invoice/add_invoice.html">Add Invoice</a></li>
+				<li><a href="../invoice/list_invoice.html">List Invoices</a></li>
+				<li><a href="../invoice/payment_history.html">Payment History</a></li>				
+			</ul>
+		</li>
+		
+		
+		<li class="dropdown pmd-dropdown"> 
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
+				<i class="media-left media-middle"><svg version="1.1" x="0px" y="0px" width="18px" height="12.706px" viewBox="0 0 18 12.706" enable-background="new 0 0 18 12.706" xml:space="preserve">
+<path fill="#C9C8C8" d="M0,0v12.706h18V0H0z M12.706,4.235v3.176H9.108V4.235H12.706z M8.049,4.235v3.176h-6.99V4.235H8.049z
+	 M1.059,8.47h6.99v3.177h-6.99V8.47z M9.108,11.647V8.47h3.599v3.177H9.108z M13.766,11.647V8.47h3.176v3.177H13.766z M16.942,7.412
+	h-3.176V4.235h3.176V7.412L16.942,7.412z"/>
+</svg></i> 
+				<span class="media-body">Projects</span>
+				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+			</a> 
+			<ul class="dropdown-menu">
+				<li><a href="add_project.html">Add Project</a></li>
+				<li><a href="list_project.html">List Projects</a></li>
+				
+			</ul>
+		</li>
+		<li class="dropdown pmd-dropdown"> 
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
+				<i class="material-icons media-left pmd-sm">account_circle</i> 
+				<span class="media-body">Profiles</span>
+				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+			</a> 
+			<ul class="dropdown-menu">
+				<li><a href="../profiles/Employee_Profiles.html">Employee Profiles</a></li>
+				<li><a href="../profiles/Tech_Profiles.html">Tech Profiles</a></li>
+				<li><a href="../profiles/Customer_Profiles.html">Customer Profiles</a></li>
+			</ul>
+		</li>
+
+		<li class="dropdown pmd-dropdown"> 
+			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
+				<i class="material-icons media-left pmd-sm">library_books</i> 
+				<span class="media-body">Reports</span>
+				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+			</a> 
+			<ul class="dropdown-menu">
+				<li><a href="../reports/profile_report.html">Profile Report</a></li>
+				<li><a href="../reports/project_report.html">Project Report</a></li>
+				<li><a href="../reports/ticket_report.html">Ticket Report</a></li>
+			</ul>
+		</li>
+
+		
+		<li> 
+			<a class="pmd-ripple-effect" href="../../login.html">	
+				<i class="media-left media-middle">
+				<svg version="1.1" id="Layer_1" x="0px" y="0px" width="18px" height="18px" viewBox="288.64 337.535 18 18" enable-background="new 288.64 337.535 18 18" xml:space="preserve">
+				<path fill="#C9C8C8" d="M295.39,337.535v2.25h9v13.5h-9v2.25h11.25v-18H295.39z M297.64,342.035v3.375h-9v2.25h9v3.375l3.375-3.375
+					l1.125-1.125l-1.125-1.125L297.64,342.035z"/>
+				</svg></i> 
+				<span class="media-body">Log Out</span>
+			</a> 
+		</li>
+		
+		
+	</ul>
+</aside><!-- End Left sidebar -->
+<!-- Sidebar Ends -->  
+	
+<!--content area start-->
+
+<div id="content" class="pmd-content inner-page">
+
+	<!--tab start-->
+	<div class="container-fluid full-width-container">
+	
+		<!-- Title -->
+		<h1 class="section-title" id="services">
+			<span>Add Project</span>
+		</h1><!-- End Title -->
+			
+		<!--breadcrum start-->
+		 <ol class="breadcrumb text-left">
+		  <li><a href="../../index.html">Dashboard</a></li>
+		  <li class="active">Add Project</li>
+		  <li><a href="list_project.html">List Project</a></li>
+
+		</ol>
+	
+		<div class="section section-custom billinfo"> 
+			<!--section-title -->
+			<!-- <h2>Add Invoice</h2>section-title end  -->
+			<!-- section content start-->
+			<form id="validationForm" action="" method="post">
+			<div class="pmd-card pmd-z-depth">
+				<div class="pmd-card-body">
+					<div class="group-fields clearfix row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group pmd-textfield pmd-textfield-floating-label">
+								<label for="regular1" class="control-label">
+									Project Title*
+								</label>
+								<input type="text" id="project_title" class="form-control">
+							</div>
+							
+							
+						</div>
+					</div>
+					<div class="group-fields clearfix row">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<div class="form-group pmd-textfield ">       
+								<label>Customer*</label>
+								<select id="customer" class="select-simple form-control pmd-select2" value = "">
+									
+									
+								</select>
+							</div>
+							<div class="form-group pmd-textfield pmd-textfield">
+								<label for="regular1" class="control-label place">
+									Start Date*
+								</label>
+								
+								<input type="date" id="start_date" class="form-control" value = "">
+							</div>
+							<div class="form-group pmd-textfield pmd-textfield">
+								<label for="regular1" class="control-label place">
+									Competed/Expected Date*
+								</label>
+								
+								<input type="date" id="last_date" class="form-control" value = "">
+							</div>
+							<button type="button" onClick="get_acc_man()" data-toggle='collapse' data-target='#show_acc_man' class=" btn btn-primary next">Add Account Maneger</button>
+						<br></br>
+						</div>
+						
+						<div id = "show_acc_man" class="collapse col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<div class="form-group pmd-textfield">       
+								<label>Account Manager*</label>
+								<select id="acc_man" class="select-simple form-control pmd-select2" value = "">
+									
+									
+								</select>
+								<br></br>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<div class="form-group pmd-textfield">
+									<label>Tech Lead</label>
+									<select id="tech_lead" style="width: 100%" value="" class="form-control select-add-tags pmd-select2-tags multi" multiple>
+										
+									</select>
+								</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<div class="form-group pmd-textfield pmd-textfield-floating-label">       
+								<label>Status*</label>
+								<select id="status" class="select-simple form-control pmd-select2" value = "">
+									<option></option>
+									<option value = "1">Open</option>
+									<option value = "0">Close</option>
+									
+								</select>
+							</div>
+						</div>
+						
+					</div>
+					<div class="group-fields clearfix row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group pmd-textfield pmd-textfield-floating-label">
+							  <label class="control-label">Discription</label>
+							  <textarea id="description" required class="form-control" value = ""></textarea>
+							</div>
+						</div>
+					</div>
+					<button data-target="#form-dialog4" data-toggle='collapse' class="btn pmd-ripple-effect btn-primary pmd-z-depth" type="button">file upload</button><br></br>
+																<div id="form-dialog4" class = "collapse pmd-card pmd-z-depth">
+															<div class="form-group pmd-textfield">
+																	<label for="first-name">Project Files</label>
+																	<div class="group-fields clearfix row pmd-card-body">
+																	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+																		<input type="file" onchange="encodeImageFileAsURL(this)" />
+
+
+															<!-- Progress Bar Start -->
+										                    <div id="pro_bar" style="display: none;" class="row">
+										                    	<div class="col-md-12"> 
+										                      		
+										                        		<div class="pmd-card-body"> 
+										                          			
+										                          			<div class="progress-rounded progress pmd-progress">
+									                                		<div id="myBar" class="progress-bar progress-bar-info" style="width: 0%;"></div>
+									                              		</div>
+										                        		</div>
+										                      		
+										                    	</div>
+										                  </div>
+										                  <!-- Progress Bar End -->
+																	 
+																	</div>
+																</div>
+
+																	 </div>
+																	</div>
+					<div class="group-fields clearfix row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="checkbox pmd-default-theme">
+								<!-- <label class="pmd-checkbox checkbox-pmd-ripple-effect">
+									<input type="checkbox" value="">
+									<span>Save Details</span>
+								</label> -->
+							</div>
+						</div>
+					</div>
+				</div>		
+				<div class="pmd-card-actions">
+					<!-- <a href="addproject();" class="btn btn-primary next">Save</a> -->
+					<button type="button" onClick="addproject()" class="btn btn-primary next">Save</button>
+					<a href="javascript:void(0);" class="btn btn-default">Cancel</a>
+				</div>
+				<button style="display: none;" id = "alertgreen" type="button" data-positionX="right"data-positionY="top"data-effect="fadeInUp"data-message="You successfully added the project"data-type="success" class="btn pmd-ripple-effect btn-success pmd-z-depth pmd-alert-toggle">Alert Success</button>
+				<!-- <button style="display: none;" id = "alertgreen2" type="button" data-positionX="right"data-positionY="top"data-effect="fadeInUp"data-message="You successfully updated the password"data-type="success" class="btn pmd-ripple-effect btn-success pmd-z-depth pmd-alert-toggle">Alert Success</button> -->
+				<button style="display: none;" id = "alertred" type="button" data-positionX="right"data-positionY="top"data-effect="fadeInUp"data-message="Something is wrong. Please try submitting again."data-type="error" class="btn pmd-ripple-effect btn-danger pmd-z-depth pmd-alert-toggle">Alert Error</button>
+			</div> <!-- section content end -->  
+			</form>
+		</div>
+		
+		
+		
+		
+		
+		
+			
+	</div><!-- tab end -->
+	
+</div><!--end content area-->
+
+<!-- Footer Starts -->
+<!--footer start-->
+<footer class="admin-footer">
+ <div class="container-fluid">
+ 	<ul class="list-unstyled list-inline">
+	 	<li>
+			<span class="pmd-card-subtitle-text">Synergy &copy; <span class="auto-update-year"></span>. All Rights Reserved.</span>
+			<!-- <h3 class="pmd-card-subtitle-text">Licensed under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license.</a></h3> -->
+        </li>
+        
+    </ul>
+ </div>
+</footer>
+<!--footer end-->
+<!-- Footer Ends -->
+
+<!-- Scripts Starts -->
+<Script>
+
+	show_project = function(){
+		if(localStorage.myemail === undefined) {
+					    		window.location.href = "../../login.html";
+											        }
+
+		$.ajax({
+					            url : "http://supervisabrampton.com/index.php/api/request/",
+					            type : 'POST',
+					            data : JSON.stringify({
+					                "jsonrpc" : "2.0",
+					                "method" : "getCustomers",
+					                "id" : "1",
+					                   "params": {
+												                             "id": localStorage.myid,
+														                     "is_customer": localStorage.data3,
+														                     "internal_user_external_user": localStorage.data2
+														                     // "customer_id":sessionStorage.fk_client_id
+												       //                       "id": "1022",
+																			// "is_customer": "0",
+																			// "internal_user_external_user": "1",
+																			// "customer_id": "1"
+
+
+
+
+
+					            				},
+					            dataType : "json",
+					            contentType: "application/json"
+					            
+					                }),
+					                success: function (result) {
+					                	
+								        console.log(result);
+
+								        var json = result.result.list;
+												
+										         $("#customer").html("");
+										        
+										        for(key in json)
+										            $("#customer").append("<option value='"+json [key].id+"'>"+json[key].name+"</option>");
+								        // sessionStorage.fk_task_id
+								    }
+
+
+					      
+					        });
+		
+
+
+		//get tech
+
+					    	$.ajax({
+					            url : "http://supervisabrampton.com/index.php/api/request/",
+					            type : 'POST',
+					            data : JSON.stringify({
+					                "jsonrpc" : "2.0",
+					                "method" : "getTech",
+					                "id" : "1",
+					                   "params": {
+					                   				 "id": localStorage.myid,
+								                     "is_customer": localStorage.data3,
+								                     "internal_user_external_user": localStorage.data2,
+												 //    "id": "1022",
+													// "is_customer": "0",
+													// "internal_user_external_user": "1",
+													"project_id": sessionStorage.project_id
+
+
+
+
+					            				},
+					            dataType : "json",
+					            contentType: "application/json"
+					            
+					                }),
+					                success: function (result) {
+					                	 // console.log(result);
+					                	 var json3 = result.result.list;
+												
+										         $("#tech_lead").html("");
+										         
+										        
+										        for(key in json3)
+										            $("#tech_lead").append("<option value='"+json3 [key].id+"'>"+json3[key].name+"</option>");
+										        
+										        
+
+					                	 
+					                }
+
+					                });
+
+					    	//end of get tech
+	}
+					    addproject = function() {
+					    	var project_title = document.getElementById('project_title').value;
+					    	var customer = document.getElementById('customer').value;
+					    	var start_date = document.getElementById('start_date').value;
+					    	var last_date = document.getElementById('last_date').value;
+					    	var acc_man = document.getElementById('acc_man').value;
+					    	var tech_lead = document.getElementById('tech_lead').value;
+					    	var status = document.getElementById('status').value;
+					    	var description = document.getElementById('description').value;
+					    	
+            				// document.write("<h2>Hello "+localStorage.id+".</h2>");
+           					// console.log(localStorage.id);
+
+
+					        $.ajax({
+					            url : "http://supervisabrampton.com/index.php/api/request/",
+					            type : 'POST',
+					            data : JSON.stringify({
+					                "jsonrpc" : "2.0",
+					                "method" : "addProject",
+					                "id" : "1",
+					                   "params": {
+												                             "id": localStorage.myid,
+														                     "is_customer": localStorage.data3,
+														                     "internal_user_external_user": localStorage.data2,
+														                     "projectDetails": {
+														                         "title": project_title,
+														                         "start_date": start_date,
+														                         "end_date": last_date,
+														                         "customer_id": customer,
+														                         "accountmanager_id": acc_man,
+														                         "tech_leads": tech_lead,
+														                         "description": description,
+														                         "files": [sessionStorage.result],
+														                         "project_status": status
+														                     					}
+
+
+
+					            				},
+					            dataType : "json",
+					            contentType: "application/json"
+					            
+					                }),
+					                success: function (result) {
+					                	
+								        console.log(result);
+								        if(typeof result.error !== 'undefined') {
+									        if (code2 = 401) {
+									        document.getElementById("alertred").click();
+									   		}
+									   		}else if (typeof result.result !== 'undefined'){
+									   			if (code2 = 200) {
+									   				document.getElementById("alertgreen").click();
+									   			}
+
+									   		}
+								        // var customer = result.result.list;
+								        // var client_name = result.result.is_customer;
+								        // var all_tickets = result.result.internal_user_external_user;
+								        // var start_date = result.result.id;
+								        // var closed_date = result.result.email;
+								        // var status = result.result.code;
+								        // console.log(customer);
+								        // sessionStorage.setItem('myname', name);
+								        // if (code = 200) {
+								        // window.location.href = "D:/Download/wamp64/www/1_Mobile_app/Main/pmd-admin-template-1.2.0/index.html";
+								    }
+
+					      
+					        });
+					        
+					    };
+					    get_acc_man = function(){
+					    	var cust_id = document.getElementById('acc_man').value;
+		sessionStorage.setItem("acc_man", cust_id);
+		$.ajax({
+					            url : "http://supervisabrampton.com/index.php/api/request/",
+					            type : 'POST',
+					            data : JSON.stringify({
+					                "jsonrpc" : "2.0",
+					                "method" : "getAccountManager",
+					                "id" : "1",
+					                   "params": {
+												                             "id": localStorage.myid,
+														                     "is_customer": localStorage.data3,
+														                     "internal_user_external_user": localStorage.data2,
+														                     "fk_customer_id": sessionStorage.acc_man
+														                     // "customer_id":sessionStorage.fk_client_id
+												       //                       "id": "1022",
+																			// "is_customer": "0",
+																			// "internal_user_external_user": "1",
+																			// "customer_id": "1"
+
+
+
+
+
+					            				},
+					            dataType : "json",
+					            contentType: "application/json"
+					            
+					                }),
+					                success: function (result) {
+					                	
+								        console.log(result);
+
+								        var json = result.result.list;
+												
+										         $("#acc_man").html("");
+										        
+										        for(key in json)
+										            $("#acc_man").append("<option value='"+json [key].id+"'>"+json[key].name+"</option>");
+								        // sessionStorage.fk_task_id
+								    }
+
+
+					      
+					        });
+		
+	}
+
+					</script>
+<script src="../../assets/js/jquery-1.12.2.min.js"></script>
+<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="../../assets/js/propeller.min.js"></script>
+<script type="text/javascript" src="../../components/select2/js/select2.full.js"></script>
+
+<!-- Propeller Select2 -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		<!-- Select & Add Multiple Tags -->
+		$(".select-add-tags").select2({
+			tags: true,
+			theme: "bootstrap",
+		});
+
+	});
+</script>
+<script type="text/javascript" src="../../components/select2/js/pmd-select2.js"></script>
+<script>
+	$(document).ready(function() {
+		var sPath=window.location.pathname;
+		var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+		$(".pmd-sidebar-nav").each(function(){
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").addClass("open");
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").find('.dropdown-menu').css("display", "block");
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").find('a.dropdown-toggle').addClass("active");
+			$(this).find("a[href='"+sPage+"']").addClass("active");
+		});
+	});
+</script>
+<script>
+	$(document).ready(function() {
+		var sPath=window.location.pathname;
+		var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+		$(".pmd-sidebar-nav").each(function(){
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").addClass("open");
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").find('.dropdown-menu').css("display", "block");
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").find('a.dropdown-toggle').addClass("active");
+			$(this).find("a[href='"+sPage+"']").addClass("active");
+		});
+		$(".auto-update-year").html(new Date().getFullYear());
+	});
+</script> 
+<script type="text/javascript">
+	//File Uploads Start
+
+	
+   function encodeImageFileAsURL(element) {
+   	pro_bar.style.display = "block";
+  var file = element.files[0];
+  var reader = new FileReader();
+  reader.onloadend = function() {
+    console.log('RESULT', reader.result);
+    sessionStorage.setItem("result", reader.result);
+    var elem = document.getElementById("myBar");   
+  var width = 10;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      elem.innerHTML = width * 1  + '%';
+    }
+  }
+    // console.log(sessionStorage.result);
+
+     
+  }
+  reader.readAsDataURL(file);
+}
+</script>
+<!-- Scripts Ends -->
+
+
+<!-- Datatable js -->
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+<!-- Datatable Bootstrap -->
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
+<!-- Datatable responsive js-->
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+
+<!-- Datatable select js-->
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script>
+
+
+<!-- Propeller Data table js-->
+
+</body>
+</html>
